@@ -2,11 +2,17 @@ from flask import Blueprint, render_template, redirect, url_for, request
 
 browse = Blueprint("browse", __name__)
 
-@browse.route("/")
+@browse.route("/", methods=["GET", "POST"])
 def index():
-    search = "test"
-    return redirect(url_for("browse.search", search=search))
+    if request.method == "POST":
+        search = request.form['search']
+        return redirect(url_for("browse.searched", search=search))
+
+    return render_template("browse.html")
 
 @browse.route("/<string:search>", methods=["GET", "POST"])
-def search(search: str):
-    return render_template("browse.html")
+def searched(search: str):
+    if request.method == "POST":
+        search = request.form['search']
+        return redirect(url_for("browse.searched", search=search))
+    return render_template("browse.html", search=search)

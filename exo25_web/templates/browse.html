@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p class="title">Browse</p>
-    <div class="container">
-        <form action="#" method="post" class="search-bar">
-            <input type="text" placeholder="Search Planet" name="search" id="search">
-            <button type="submit"><img src="/static/images/search.png"></button>
-        </form>
-    </div>
+    {% if not search %}
+        <p class="title">Browse</p>
+        <div class="container">
+            <form action="#" method="post" class="search-bar">
+                <input type="text" placeholder="Search Planet" name="search" id="search">
+                <button type="submit"><img src="/static/images/search.png"></button>
+            </form>
+        </div>
+    {% else %}
+        <p class="title">{{search}}</p>
+    {% endif %}
 {% endblock %}

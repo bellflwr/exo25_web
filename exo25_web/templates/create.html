@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <p>ID: {{id}}</p>
+    <form action="/#" method="post">
+        <input type="text" name="name" id="name">
+
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

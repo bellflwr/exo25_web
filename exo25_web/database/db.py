@@ -2,14 +2,18 @@ from dataclasses import dataclass
 import sqlite3
 from flask import g
 
+# con = sqlite3.connect("../../Exoplanets.db")
+# cur = con.cursor()
+
 DATABASE = "Exoplanets.db"
 
 
 def get_db():
     db = getattr(g, "_database", None)
     if db is None:
-        db = g._database = sqlite3.connect(DATABASE, check_same_thread=False)
+        db = g._database = sqlite3.connect(DATABASE)
     return db
+
 
 
 @dataclass
@@ -17,14 +21,15 @@ class Exoplanet:
     # Instantiating all attributes
     id: int | None
     name: str
-    planet_type: str
     diameter: float
     distance: float
-    material: str
     gas: bool
-    rings: int
+    height_mult: float
+    erosion: int
+    frequency: float
+    amplitude: float
+    scale: float
     colour: str
-    climate: float
     star_type: str
 
     # Takes a cursor and id of a row/exoplanet
@@ -58,20 +63,22 @@ class Exoplanet:
         # Makes tuple of all data to insert into SQL statement
         inserted_tuple = (
             self.name,
-            self.planet_type,
             self.diameter,
             self.distance,
-            self.material,
             self.gas,
-            self.rings,
+            self.height_mult,
+            self.erosion,
+            self.frequency,
+            self.amplitude,
+            self.scale,
             self.colour,
-            self.climate,
             self.star_type,
         )
         # Inserts object data into database and commits it
         cur.execute(
-            "INSERT INTO Exoplanets(Name, Type, Diameter, Distance, Material, Gas, Rings, Colour, Climate,"
-            "StarType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO Exoplanets(Name, Diameter, Distance, Gas, HeightMultiplier, Erosion, Frequency, Amplitude,"
+            " Scale, Colour, StarType) "
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             inserted_tuple,
         )
 
@@ -93,9 +100,11 @@ class Exoplanet:
         return cur.execute("SELECT COUNT(*) FROM Exoplanets").fetchone()[0]
 
 
-# planet = Exoplanet("Earth", "Earth", 12742, 1, "soil", False, 0, "Blue", 20, 'O')
+# planet = Exoplanet(-1, "Earth", 12047, 1, False, 2.0, 2, 1.0, 1.0, 1.0, "Blue", "G")
 
-# planet.commit()
+# planet.write(cur)
+
+# con.commit()
 
 # print(cur.execute("SELECT * FROM Exoplanets").fetchone())
 

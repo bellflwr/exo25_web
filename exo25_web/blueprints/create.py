@@ -23,14 +23,15 @@ def editor(id: int):
         planet = Exoplanet(
             None, 
             f.get("name", type=str),
-            f.get("planet-type", type=str),
             f.get("diameter", type=float),
             f.get("distance", type=float),
-            f.get("planet-material", type=str),
             f.get("gas", type=bool, default=False),
-            f.get("rings", type=int),
+            f.get("height-multiplier", type=float),
+            f.get("erosion", type=float),
+            f.get("freq", type=float),
+            f.get("amp", type=float),
+            f.get("scale", type=float),
             f.get("colour", type=str),
-            f.get("climate", type=float),
             f.get("star-type", type=str),
         )
 

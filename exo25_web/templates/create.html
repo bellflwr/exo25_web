@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <p>ID: {{id}}</p>
-    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{planetType: '', diameter: 1, distance: 1, material: '', gas: false, rings: 0, colour: 'red', climate: 1, starType: ''}">
+    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{diameter: 1, distance: 1, gas: false, heightMultiplier: 1, erosion: 1, freq: 1, amp: 1, scale: 1, colour: '#aaaaaa', starType: ''}">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
 
-
         <div>
-            <label for="diameter">Diamter: </label>
+            <label for="diameter">Diameter: </label>
             <input type="number" class="noarrow" name="diameter" id="diameter" min="0.5" max="10" step="0.1" value="1" x-model="diameter">
             <span>AU</span>
         </div>
@@ -20,18 +19,64 @@
         </div>
         <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
 
+        <div>
+            <label for="gas">Gas: </label>
+        </div>
+        <input type="checkbox" name="gas" id="gas" x-model="gas">
         
+
+
+        <div>
+            <label for="height-multiplier">Height Multiplier: </label>
+            <input type="number" class="noarrow" name="height-multiplier" id="height-multiplier" min="0.5" max="10" step="0.1" value="1" x-model="heightMultiplier">
+        </div>
+        <input type="range" name="height-multiplier" id="height-multiplier" min="0.5" max="10" step="0.1" value="1" x-model="heightMultiplier">
+
+
+        <div>
+            <label for="erosion">Erosion: </label>
+            <input type="number" class="noarrow" name="erosion" id="erosion" min="0.5" max="10" step="0.1" value="1" x-model="erosion">
+        </div>
+        <input type="range" name="erosion" id="erosion" min="0.5" max="10" step="0.1" value="1" x-model="erosion">
+
+
+        <div>
+            <label for="freq">Frequency: </label>
+            <input type="number" class="noarrow" name="freq" id="freq" min="0.5" max="10" step="0.1" value="1" x-model="freq">
+        </div>
+        <input type="range" name="freq" id="freq" min="0.5" max="10" step="0.1" value="1" x-model="freq">
+
+
+        <div>
+            <label for="amp">Amplitude: </label>
+            <input type="number" class="noarrow" name="amp" id="amp" min="0.5" max="10" step="0.1" value="1" x-model="amp">
+        </div>
+        <input type="range" name="amp" id="amp" min="0.5" max="10" step="0.1" value="1" x-model="amp">
+
+
+        <div>
+            <label for="scale">Scale: </label>
+            <input type="number" class="noarrow" name="scale" id="scale" min="0.5" max="10" step="0.1" value="1" x-model="scale">
+        </div>
+        <input type="range" name="scale" id="scale" min="0.5" max="10" step="0.1" value="1" x-model="scale">
+
+
         <div>
             <label for="colour">Colour: </label>
             <input type="color" class="noarrow" name="colour" id="colour" x-model="colour">
         </div>
 
-
         <div>
-            <label for="star-type">Planet Type: </label>
+            <label for="star-type">Star Type: </label>
         </div>
         <select name="star-type" id="star-type" x-model="starType">
-            <option value="awesome">Awesome</option>
+            <option value="O">O</option>
+            <option value="B">B</option>
+            <option value="A">A</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+            <option value="K">K</option>
+            <option value="M">M</option>
         </select>
 
         <input type="submit" value="Submit">

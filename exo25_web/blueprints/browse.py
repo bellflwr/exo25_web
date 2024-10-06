@@ -37,13 +37,13 @@ mass = { # Measured in suns
 }
 
 luminosity = { # Measured in suns
-    "O": "100 000",
-    "B": "1000",
-    "A": "20",
-    "F": "4",
-    "G": "1.0",
-    "K": "0.2",
-    "M": "0.01"
+    "O": 100000,
+    "B": 1000,
+    "A": 20,
+    "F": 4,
+    "G": 1.0,
+    "K": 0.2,
+    "M": 0.01
 }
 
 lifetime = { # Measured in million years

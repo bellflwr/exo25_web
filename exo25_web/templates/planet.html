@@ -16,17 +16,17 @@
     <br>
     <p>Diameter: {{planet.diameter}}AU</p>
     <p>Distance to it's star: {{planet.distance}}AU</p>
-    <p>Height Multiplier: {{planet.height_multiplier}}</p>
+    <p>Height Multiplier: {{planet.height_mult}}</p>
     <p>frequency: {{planet.frequency}}</p>
     <p>amplitude: {{planet.amplitude}}</p>
     <p>Scale: {{planet.scale}}</p>
     <p>Star Type: {{planet.star_type}}</p>
-    <p>Sun's Tempeture: {{temp[planet.type]}}</p>
-    <p>Sun's Radius (measured in suns): {{radius[planet.type]}}</p>
-    <p>Sun's Mass (measured in suns): {{mass[planet.type]}}</p>
-    <p>Sun's Luminosity (measured in suns): {{luminosity[planet.type]}}</p>
-    <p>Sun's Lifetime (measured in million years): {{lifetimes[planet.type]}}</p>
-    <p>Sun's Abundance: {{abundance[planet.type]}}</p>
+    <p>Star's Tempeture: {{temp[planet.star_type]}}</p>
+    <p>Star's Solar Radius: {{radius[planet.star_type]}}</p>
+    <p>Star's Solar Mass: {{mass[planet.star_type]}}</p>
+    <p>Star's Solar Luminosity: {{luminosity[planet.star_type]}}</p>
+    <p>Star's Lifetime (measured in million years): {{lifetime[planet.star_type]}}</p>
+    <p>Star's Abundance: {{abundance[planet.star_type]}}</p>
   
 </div>
 
@@ -39,22 +39,26 @@
   var fullscreenButton = document.querySelector("#unity-fullscreen-button");
   var warningBanner = document.querySelector("#unity-warning");
 
-  var diameter = {{planet.diameter}};
-  var distance = {{planet.distance}};
-  var height_multiplier = {{planet.height_multiplier}};
-  var frequency = {{planet.frequency}};
-  var amplitude = {{planet.amplitude}};
-  var scale = {{planet.scale}};
-  var star_type = "{{planet.star_type}}";
-  var temp = "{{temp[planet.type]}}";
-  var radius = "{{radius[planet.type]}}";
-  var mass = "{{mass[planet.type]}}";
-  var luminosity = "{{luminosity[planet.type]}}";
-  var lifetimes = "{{lifetimes[planet.type]}}";
-  var abundance = "{{abundance[planet.type]}}";
-  var zone = "{{zone}}";
+  
 
-
+  var getValues = function() {
+    return {
+      diameter: diameter,
+      distance: distance,
+      height_multiplier: height_multiplier,
+      frequency: frequency,
+      amplitude: amplitude,
+      scale: scale,
+      star_type: star_type,
+      temp: temp,
+      radius: radius,
+      mass: mass,
+      luminosity: luminosity,
+      lifetime: lifetime,
+      abundance: abundance,
+      zone: zone
+    };
+  }
 
   // Shows a temporary message banner/ribbon for a few seconds, or
   // a permanent error message on top of the canvas if type=='error'.

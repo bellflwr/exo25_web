@@ -12,13 +12,22 @@
   <div id="unity-warning"></div>
 </div>
 <div class="info">
+    <p>The Sun is {{zone}} from that distance</p>
+    <br>
     <p>Diameter: {{planet.diameter}}AU</p>
     <p>Distance to it's star: {{planet.distance}}AU</p>
-    <p>Height Multiplier: {{planet.heightMultiplier}}</p>
+    <p>Height Multiplier: {{planet.height_multiplier}}</p>
     <p>frequency: {{planet.frequency}}</p>
     <p>amplitude: {{planet.amplitude}}</p>
     <p>Scale: {{planet.scale}}</p>
     <p>Star Type: {{planet.star_type}}</p>
+    <p>Sun's Tempeture: {{temp[planet.type]}}</p>
+    <p>Sun's Radius (measured in suns): {{radius[planet.type]}}</p>
+    <p>Sun's Mass (measured in suns): {{mass[planet.type]}}</p>
+    <p>Sun's Luminosity (measured in suns): {{luminosity[planet.type]}}</p>
+    <p>Sun's Lifetime (measured in million years): {{lifetimes[planet.type]}}</p>
+    <p>Sun's Abundance: {{abundance[planet.type]}}</p>
+  
 </div>
 
 

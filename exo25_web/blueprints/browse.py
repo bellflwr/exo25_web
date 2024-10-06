@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, redirect, url_for, request
 
 from exo25_web.database import db
 
+import math
+
 browse = Blueprint("browse", __name__)
 
 temp = {
@@ -90,6 +92,14 @@ def page(id: int):
         # TODO handle this
         raise Exception()
     
-    
+    ri = math.sqrt(luminosity[planet.star_type] / 1.1)
+    ro = math.sqrt(luminosity[planet.star_type] / 0.53)
 
-    return render_template("planet.html", planet=planet)
+    if planet.distance < ri:
+        zone = "Too Hot"
+    elif planet.distance < ro:
+        zone = "Habitable"
+    else:
+        zone = "Too Cold"
+    
+    return render_template("planet.html", planet=planet, zone=zone, temp=temp, radius=radius, mass=mass, luminosity=luminosity, lifetime=lifetime, abundance=abundance)

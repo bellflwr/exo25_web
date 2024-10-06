@@ -11,7 +11,10 @@ def index():
 @create.route("/<int:id>", methods=["GET", "POST"])
 def editor(id: int):
     if request.method == "POST":
-        pass
+        f = request.form
+
+        return "", 201
+
     
 
     return render_template("create.html", id=id)

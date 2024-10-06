@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
 
 body {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(45,15,84,1) 35%, rgba(161,32,116,1) 100%); 
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(45, 15, 84, 1) 35%, rgba(161, 32, 116, 1) 100%);
     color: #eeeeee;
 
     font-family: "Inter", sans-serif;
@@ -15,6 +15,7 @@ body {
     justify-content: center;
     gap: 2rem;
     padding: 1rem 0;
+    margin-bottom: 2rem;
 
     font-size: 1.5rem;
 }
@@ -30,20 +31,18 @@ a {
     font-size: 5rem;
 }
 
-.search{
+.search {}
 
-}
-
-.container{
-    width:100%;
-    padding:5%;
-    display:flex;
+.container {
+    width: 100%;
+    padding: 5%;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.search-bar{
-    width:100%;
+.search-bar {
+    width: 100%;
     max-width: 700px;
     background: rgba(255, 255, 255, 0.2);
     display: flex;
@@ -52,7 +51,7 @@ a {
     padding: 10px 20px;
 }
 
-.search-bar input{
+.search-bar input {
     background: transparent;
     flex: 1;
     border: 0;
@@ -62,18 +61,72 @@ a {
     color: #cac7ff
 }
 
-::placeholder{
+::placeholder {
     color: #cac7ff;
 }
 
-.search-bar button img{
+.search-bar button img {
     width: 25px;
 }
-.search-bar button{
+
+.search-bar button {
     border: 0;
     border-radius: 50%;
-    width:60px;
+    width: 60px;
     height: 60px;
     background: #58629b;
     cursor: pointer;
+}
+
+#create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+#create-form div {
+    display: flex;
+    /* flex-direction: ; */
+    align-items: start;
+    justify-content: center;
+}
+
+#create-form > input {
+    margin-bottom: 1rem;
+}
+
+#create-form input[type="range"] {
+    accent-color: #eeeeee;
+    outline: none;
+    width: 16rem;
+}
+
+#create-form input[type="number"] {
+    accent-color: #eeeeee;
+    outline: none;
+    width: 2rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.noarrow::-webkit-outer-spin-button,
+.noarrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+.noarrow {
+    -moz-appearance: textfield;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
 }

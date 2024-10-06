@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
     <p>ID: {{id}}</p>
-    <form action="/#" method="post">
+    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{distance: 1}">
+        <label for="name">Name:</label>
         <input type="text" name="name" id="name">
 
+        <div>
+            <label for="distance">Distance: </label>
+            <input type="number" class="noarrow" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+            <span>AU</span>
+        </div>
+        <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+
+        <div>
+            <label for="distance">Distance: </label>
+            <input type="number" class="noarrow" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+        </div>
+        <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+
+        <div>
+            <label for="distance">Distance: </label>
+            <input type="number" class="noarrow" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+        </div>
+        <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+
+        
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

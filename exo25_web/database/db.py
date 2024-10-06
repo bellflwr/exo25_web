@@ -35,8 +35,7 @@ class Exoplanet:
     def from_id(cls, cur, exoplanet_id):
         # Takes exoplanet_id and finds row with corresponding ID
         exoplanet_query = cur.execute(
-            "SELECT ID, Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
-            "Climate, StarType FROM Exoplanets WHERE ID = ?",
+            "SELECT * FROM Exoplanets WHERE ID = ?",
             (exoplanet_id,),
         ).fetchone()
         # Checks if no row was found
@@ -49,8 +48,7 @@ class Exoplanet:
     def from_name(cls, cur, exoplanet_name):
         # Takes exoplanet_id and finds row with corresponding name
         exoplanet_query = cur.execute(
-            "SELECT ID, Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
-            "Climate, StarType FROM Exoplanets WHERE Name = ?",
+            "SELECT * FROM Exoplanets WHERE Name = ?",
             (exoplanet_name,),
         ).fetchone()
         # Checks if no row was found
@@ -81,6 +79,18 @@ class Exoplanet:
         )
         con.commit()
 
+    # Searches for an exoplanet with the beginning part of entered string
+    @classmethod
+    def search(cls, cur, name_snip):
+        # Finds exoplanets with names beginning with the name snippet
+        exoplanet_query = cur.execute(
+            "SELECT * FROM Exoplanets WHERE Name LIKE ?", (name_snip + "%",)
+        ).fetchall()
+        exoplanet_object_list = []
+        for i in range(len(exoplanet_query)):
+            exoplanet_object_list.append(cls(*exoplanet_query[i]))
+        return exoplanet_object_list
+
     # Counts total amount of planet rows in table
     @staticmethod
     def exoplanet_count(cur):
@@ -95,3 +105,5 @@ class Exoplanet:
 
 # planet2 = Exoplanet.from_id(cur, 1)
 # print(planet2)
+
+# print(Exoplanet.search(cur, "E"))

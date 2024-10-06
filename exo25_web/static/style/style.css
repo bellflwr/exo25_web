@@ -49,6 +49,7 @@ a {
     align-items: center;
     border-radius: 60px;
     padding: 10px 20px;
+    backdrop-filter: blur(4) saturate(180%);
 }
 
 .search-bar input {

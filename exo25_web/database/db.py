@@ -18,6 +18,7 @@ def get_db():
 @dataclass
 class Exoplanet:
     # Instantiating all attributes
+    id: int
     name: str
     planet_type: str
     diameter: int
@@ -34,7 +35,7 @@ class Exoplanet:
     def from_id(cls, cur, exoplanet_id):
         # Takes exoplanet_id and finds row with corresponding ID
         exoplanet_query = cur.execute(
-            "SELECT Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
+            "SELECT ID, Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
             "Climate, StarType FROM Exoplanets WHERE ID = ?",
             (exoplanet_id,),
         ).fetchone()
@@ -48,7 +49,7 @@ class Exoplanet:
     def from_name(cls, cur, exoplanet_name):
         # Takes exoplanet_id and finds row with corresponding name
         exoplanet_query = cur.execute(
-            "SELECT Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
+            "SELECT ID, Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
             "Climate, StarType FROM Exoplanets WHERE Name = ?",
             (exoplanet_name,),
         ).fetchone()

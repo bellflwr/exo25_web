@@ -139,7 +139,35 @@ main {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    margin-top: 400px;
-    margin-bottom: 200px;
+    margin: 50px auto;
     font-size: 1.5rem;
+}
+
+.information{
+    margin: 50px 100px;
+    font-size: 1.5rem;
+}
+
+.information p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.information h2{
+    font-size: 2rem;
+    display: inline-block;
+    justify-content: left;
+    font-weight: bolder;
+}
+
+.information img{
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 650px;
 }

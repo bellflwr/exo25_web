@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<p class="title">{{planet.name}}</p>
 <div id="unity-container" class="unity-desktop">
   <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
   <div id="unity-loading-bar">
@@ -11,12 +12,12 @@
   <div id="unity-warning"></div>
 </div>
 <div class="info">
-    <p>Type: {{planet.planet_type}}</p>
     <p>Diameter: {{planet.diameter}}AU</p>
     <p>Distance to it's star: {{planet.distance}}AU</p>
-    <p>Material: {{planet.material}}</p>
-    <p>Colour: {{planet.colour}}</p>
-    <p>Climate: {{planet.climate}}</p>
+    <p>Height Multiplier: {{planet.heightMultiplier}}</p>
+    <p>frequency: {{planet.frequency}}</p>
+    <p>amplitude: {{planet.amplitude}}</p>
+    <p>Scale: {{planet.scale}}</p>
     <p>Star Type: {{planet.star_type}}</p>
 </div>
 

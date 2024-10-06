@@ -1,9 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
     <p>ID: {{id}}</p>
-    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{distance: 1}">
+    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{planetType: '', diameter: 1, distance: 1, material: '', gas: false, rings: 0, colour: 'red', climate: 1, starType: ''}">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
+
+        <div>
+            <label for="planet-type">Planet Type: </label>
+        </div>
+        <select name="planet-type" id="planet-type" x-model="distance">
+
+        </select>
+
+        <div>
+            <label for="diameter">Diamter: </label>
+            <input type="number" class="noarrow" name="diameter" id="diameter" min="0.5" max="10" step="0.1" value="1" x-model="diameter">
+            <span>AU</span>
+        </div>
+        <input type="range" name="diameter" id="diameter" min="0.5" max="10" step="0.1" value="1" x-model="diameter">
 
         <div>
             <label for="distance">Distance: </label>
@@ -13,18 +27,41 @@
         <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
 
         <div>
-            <label for="distance">Distance: </label>
-            <input type="number" class="noarrow" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+            <label for="planet-material">Planet Type: </label>
         </div>
-        <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+        <select name="planet-material" id="planet-material" x-model="material">
+
+        </select>
+        
+        <div>
+            <label for="gas">Gas: </label>
+        </div>
+        <input type="checkbox" name="gas" id="gas" x-model="gas">
 
         <div>
-            <label for="distance">Distance: </label>
-            <input type="number" class="noarrow" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+            <label for="rings">Rings: </label>
+            <input type="number" class="noarrow" name="distance" id="distance" min="0" max="10" step="1" value="0" x-model="rings">
         </div>
-        <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
+        <input type="range" name="distance" id="distance" min="0" max="10" step="1" value="0" x-model="rings">
 
-        
+        <div>
+            <label for="colour">Colour: </label>
+            <input type="color" class="noarrow" name="colour" id="colour" x-model="colour">
+        </div>
+
+        <div>
+            <label for="climate">Climate: </label>
+            <input type="number" class="noarrow" name="climate" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="climate">
+        </div>
+        <input type="range" name="climate" id="climate" min="0.5" max="10" step="0.1" value="1" x-model="climate">
+
+        <div>
+            <label for="star-type">Planet Type: </label>
+        </div>
+        <select name="star-type" id="star-type" x-model="starType">
+
+        </select>
+
         <input type="submit" value="Submit">
     </form>
 {% endblock %}

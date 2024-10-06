@@ -1,13 +1,5 @@
-{% extends 'base.html' %} {% block content %} {% if not search %}
-<p class="title">Browse</p>
-<div class="container">
-  <form action="#" method="get" class="search-bar">
-    <input type="text" placeholder="Search Planet" name="search" id="search" />
-    <button type="submit"><img src="/static/images/search.png" /></button>
-  </form>
-</div>
-{% else %}
-<p class="title">{{search}}</p>
+{% extends 'base.html' %}
+{% block content %}
 <div id="unity-container" class="unity-desktop">
   <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
   <div id="unity-loading-bar">
@@ -19,13 +11,13 @@
   <div id="unity-warning"></div>
 </div>
 <div class="info">
-    <p>Type: {{planet_type}}</p>
-    <p>Diameter: {{planet_diameter}}AU</p>
-    <p>Distance to it's star: {{planet_distance}}AU</p>
-    <p>Material: {{planet_material}}</p>
-    <p>Colour: {{planet_colour}}</p>
-    <p>Climate: {{planet_climate}}</p>
-    <p>Star Type: {{star_type}}</p>
+    <p>Type: {{planet.planet_type}}</p>
+    <p>Diameter: {{planet.diameter}}AU</p>
+    <p>Distance to it's star: {{planet.distance}}AU</p>
+    <p>Material: {{planet.material}}</p>
+    <p>Colour: {{planet.colour}}</p>
+    <p>Climate: {{planet.climate}}</p>
+    <p>Star Type: {{planet.star_type}}</p>
 </div>
 
 
@@ -125,4 +117,4 @@
 
   document.body.appendChild(script);
 </script>
-{% endif %} {% endblock %}
+{% endblock %}

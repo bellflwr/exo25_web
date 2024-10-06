@@ -2,32 +2,29 @@ from dataclasses import dataclass
 import sqlite3
 from flask import g
 
-con = sqlite3.connect("../../Exoplanets.db")
-# cur = con.cursor()
-
 DATABASE = "Exoplanets.db"
 
 
 def get_db():
     db = getattr(g, "_database", None)
     if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
+        db = g._database = sqlite3.connect(DATABASE, check_same_thread=False)
     return db
 
 
 @dataclass
 class Exoplanet:
     # Instantiating all attributes
-    id: int
+    id: int | None
     name: str
     planet_type: str
-    diameter: int
-    distance: int
+    diameter: float
+    distance: float
     material: str
     gas: bool
     rings: int
     colour: str
-    climate: int
+    climate: float
     star_type: str
 
     # Takes a cursor and id of a row/exoplanet
@@ -59,7 +56,7 @@ class Exoplanet:
         return cls(*exoplanet_query)
 
     # Inserts exoplanet object into database
-    def commit(self, cur):
+    def write(self, cur):
         # Makes tuple of all data to insert into SQL statement
         inserted_tuple = (
             self.name,
@@ -79,7 +76,6 @@ class Exoplanet:
             "StarType) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             inserted_tuple,
         )
-        con.commit()
 
     # Counts total amount of planet rows in table
     @staticmethod

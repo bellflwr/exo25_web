@@ -39,6 +39,23 @@
   var fullscreenButton = document.querySelector("#unity-fullscreen-button");
   var warningBanner = document.querySelector("#unity-warning");
 
+  var diameter = {{planet.diameter}};
+  var distance = {{planet.distance}};
+  var height_multiplier = {{planet.height_multiplier}};
+  var frequency = {{planet.frequency}};
+  var amplitude = {{planet.amplitude}};
+  var scale = {{planet.scale}};
+  var star_type = "{{planet.star_type}}";
+  var temp = "{{temp[planet.type]}}";
+  var radius = "{{radius[planet.type]}}";
+  var mass = "{{mass[planet.type]}}";
+  var luminosity = "{{luminosity[planet.type]}}";
+  var lifetimes = "{{lifetimes[planet.type]}}";
+  var abundance = "{{abundance[planet.type]}}";
+  var zone = "{{zone}}";
+
+
+
   // Shows a temporary message banner/ribbon for a few seconds, or
   // a permanent error message on top of the canvas if type=='error'.
   // If type=='warning', a yellow highlight color is used.

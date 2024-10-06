@@ -37,7 +37,7 @@ class Exoplanet:
     @classmethod
     def from_name(cls, cur, exoplanet_name):
         exoplanet_query = cur.execute("SELECT Name, Type, Diameter, Distance, Material, Gas, Rings, Colour,"
-                                      "Climate, StarType FROM Exoplanets WHERE ID = ?", (exoplanet_name,)).fetchone()
+                                      "Climate, StarType FROM Exoplanets WHERE Name = ?", (exoplanet_name,)).fetchone()
         return cls(*exoplanet_query)
 
     def commit(self, cur):

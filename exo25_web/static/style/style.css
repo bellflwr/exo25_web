@@ -164,3 +164,11 @@ main {
     justify-content: left;
     font-weight: bolder;
 }
+
+.information img{
+    margin: 0px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 650px;
+}

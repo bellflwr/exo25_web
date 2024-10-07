@@ -81,9 +81,9 @@
   var buildUrl = "/static/Build";
   var loaderUrl = buildUrl + "/Builds.loader.js";
   var config = {
-    dataUrl: buildUrl + "/Builds.data.gz",
-    frameworkUrl: buildUrl + "/Builds.framework.js.gz",
-    codeUrl: buildUrl + "/Builds.wasm.gz",
+    dataUrl: buildUrl + "/Builds.data.br",
+    frameworkUrl: buildUrl + "/Builds.framework.js.br",
+    codeUrl: buildUrl + "/Builds.wasm.br",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "Vortex25",
     productName: "exo25",
@@ -138,13 +138,7 @@
       });
   };
 
-  unityInstance.sendMessage('JavascriptHook', 'StarDistance', {{planet.distance}});
-  unityInstance.sendMessage('JavascriptHook', 'PlanetColour', {{planet.colour}});
-  unityInstance.sendMessage('JavascriptHook', 'HeightMultiplier', {{planet.height_mult}});
-  unityInstance.sendMessage('JavascriptHook', 'Frequency', {{planet.frequency}});
-  unityInstance.sendMessage('JavascriptHook', 'Amplitude', {{planet.amplitude}});
-  unityInstance.sendMessage('JavascriptHook', 'NoiseScaleGlobal', {{planet.scale}});
-  unityInstance.sendMessage('JavascriptHook', 'StarType', {{star_type}});
+  
 
   document.body.appendChild(script);
 </script>

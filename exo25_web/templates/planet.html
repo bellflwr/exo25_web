@@ -39,25 +39,17 @@
   var fullscreenButton = document.querySelector("#unity-fullscreen-button");
   var warningBanner = document.querySelector("#unity-warning");
 
-  
+  var diameter = {{planet.diameter}};
+  var distance = {{planet.distance}};
+  var height_multiplier = {{planet.height_mult}};
+  var frequency = {{planet.frequency}};
+  var amplitude = {{planet.amplitude}};
+  var scale = {{planet.scale}};
+  var star_type = "{{planet.star_type}}";
+  var temp = "{{temp[planet.star_type]}}";
 
-  var getValues = function() {
-    return {
-      diameter: diameter,
-      distance: distance,
-      height_multiplier: height_multiplier,
-      frequency: frequency,
-      amplitude: amplitude,
-      scale: scale,
-      star_type: star_type,
-      temp: temp,
-      radius: radius,
-      mass: mass,
-      luminosity: luminosity,
-      lifetime: lifetime,
-      abundance: abundance,
-      zone: zone
-    };
+  var getDiameter = function() {
+    return diameter;
   }
 
   // Shows a temporary message banner/ribbon for a few seconds, or
@@ -145,6 +137,8 @@
         alert(message);
       });
   };
+
+  
 
   document.body.appendChild(script);
 </script>

@@ -6,15 +6,8 @@ from exo25_web.database.db import Exoplanet
 create = Blueprint("create", __name__)
 
 
-@create.route("/")
+@create.route("/", methods=["GET", "POST"])
 def index():
-    # create_exoplanet()
-    id = 7
-    return redirect(url_for("create.editor", id=id))
-
-
-@create.route("/<int:id>", methods=["GET", "POST"])
-def editor(id: int):
     if request.method == "POST":
         f = request.form
 
@@ -37,10 +30,10 @@ def editor(id: int):
 
 
 
-        planet.write(cur)
+        id = planet.write(cur)
 
         db.get_db().commit()
 
-        return "", 201
+        return redirect(url_for("browse.page", id=id))
 
-    return render_template("create.html", id=id)
+    return render_template("create.html")

@@ -82,6 +82,8 @@ class Exoplanet:
             inserted_tuple,
         )
 
+        return cur.lastrowid
+
     # Searches for an exoplanet with the beginning part of entered string
     @classmethod
     def search(cls, cur, name_snip):

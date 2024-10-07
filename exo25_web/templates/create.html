@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{diameter: 1, distance: 1, gas: false, heightMultiplier: 1, freq: 1, amp: 1, scale: 5, colour: '#aaaaaa', starType: ''}">
+    <form id="create-form" method="post" x-data="{diameter: 1, distance: 1, gas: false, heightMultiplier: 1, erosion: 1, freq: 1, amp: 1, scale: 1, colour: '#aaaaaa', starType: ''}">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
 

@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <p>ID: {{id}}</p>
-    <form id="create-form" method="post" x-data="{diameter: 1, distance: 1, gas: false, heightMultiplier: 1, erosion: 1, freq: 1, amp: 1, scale: 1, colour: '#aaaaaa', starType: ''}">
+    <form id="create-form" method="post" x-on:submit="formSubmit" x-data="{diameter: 1, distance: 1, gas: false, heightMultiplier: 1, erosion: 1, freq: 1, amp: 1, scale: 1, colour: '#aaaaaa', starType: ''}">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name">
 
@@ -19,46 +18,36 @@
         </div>
         <input type="range" name="distance" id="distance" min="0.5" max="10" step="0.1" value="1" x-model="distance">
 
-        <div>
-            <label for="gas">Gas: </label>
-        </div>
-        <input type="checkbox" name="gas" id="gas" x-model="gas">
+        
         
 
 
         <div>
             <label for="height-multiplier">Height Multiplier: </label>
-            <input type="number" class="noarrow" name="height-multiplier" id="height-multiplier" min="0.5" max="10" step="0.1" value="1" x-model="heightMultiplier">
+            <input type="number" class="noarrow" name="height-multiplier" id="height-multiplier" min="0.1" max="2" step="0.01" value="1" x-model="heightMultiplier">
         </div>
-        <input type="range" name="height-multiplier" id="height-multiplier" min="0.5" max="10" step="0.1" value="1" x-model="heightMultiplier">
-
-
-        <div>
-            <label for="erosion">Erosion: </label>
-            <input type="number" class="noarrow" name="erosion" id="erosion" min="0.5" max="10" step="0.1" value="1" x-model="erosion">
-        </div>
-        <input type="range" name="erosion" id="erosion" min="0.5" max="10" step="0.1" value="1" x-model="erosion">
+        <input type="range" name="height-multiplier" id="height-multiplier" min="0.1" max="2" step="0.01" value="1" x-model="heightMultiplier">
 
 
         <div>
             <label for="freq">Frequency: </label>
-            <input type="number" class="noarrow" name="freq" id="freq" min="0.5" max="10" step="0.1" value="1" x-model="freq">
+            <input type="number" class="noarrow" name="freq" id="freq" min="0.1" max="2" step="0.01" value="1" x-model="freq">
         </div>
-        <input type="range" name="freq" id="freq" min="0.5" max="10" step="0.1" value="1" x-model="freq">
+        <input type="range" name="freq" id="freq" min="0.1" max="2" step="0.01" value="1" x-model="freq">
 
 
         <div>
             <label for="amp">Amplitude: </label>
-            <input type="number" class="noarrow" name="amp" id="amp" min="0.5" max="10" step="0.1" value="1" x-model="amp">
+            <input type="number" class="noarrow" name="amp" id="amp" min="0.1" max="2" step="0.01" value="1" x-model="amp">
         </div>
-        <input type="range" name="amp" id="amp" min="0.5" max="10" step="0.1" value="1" x-model="amp">
+        <input type="range" name="amp" id="amp" min="0.1" max="2" step="0.01" value="1" x-model="amp">
 
 
         <div>
             <label for="scale">Scale: </label>
-            <input type="number" class="noarrow" name="scale" id="scale" min="0.5" max="10" step="0.1" value="1" x-model="scale">
+            <input type="number" class="noarrow" name="scale" id="scale" min="5" max="20" step="0.1" x-model="scale">
         </div>
-        <input type="range" name="scale" id="scale" min="0.5" max="10" step="0.1" value="1" x-model="scale">
+        <input type="range" name="scale" id="scale" min="5" max="20" step="0.1" x-model="scale">
 
 
         <div>
